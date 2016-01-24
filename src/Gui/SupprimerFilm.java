@@ -7,7 +7,6 @@ import javax.swing.JList;
 
 import Core.StockManager;
 import javax.swing.JTable;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
 import java.sql.*;
@@ -31,15 +30,17 @@ public class SupprimerFilm extends JPanel {
 		{
 		
 			mng = new StockManager();
-		
 			table = new JTable(buildTableModel(mng.getAllFilms()));
+			table.setBounds(28, 32, 384, 210);
+			add(table);
+			
 		}
 		catch(SQLException e)
 		{
 			
 		}
-		table.setBounds(28, 32, 384, 210);
-		add(table);
+		
+		
 
 	}
 	

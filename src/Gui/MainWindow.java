@@ -51,10 +51,13 @@ public class MainWindow {
 		frame.getContentPane().add(tabbedPane);
 		
 		AjouterFilm tabAjFlm = new AjouterFilm();
+		AjouterRealisateur tabAjRea = new AjouterRealisateur();
 		SupprimerFilm tabSuppFlm = new SupprimerFilm();
+		
 		
 		tabbedPane.add("Ajouter Film", tabAjFlm);
 		tabbedPane.add("SupprimerFilm", tabSuppFlm);
+		tabbedPane.add("Ajouter Realisateur", tabAjRea);
 		
 	}
 }
