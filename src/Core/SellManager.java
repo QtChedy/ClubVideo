@@ -23,13 +23,15 @@ public class SellManager
 	}
 	public void vend(Chariot commande) throws SQLException
 	{
-		
-		for(int id_Vente= getNumberOfSells() ,sz=commande.films.size() ,i = 0;i < sz; ++i)
+		int sz = sz=commande.films.size();
+		for(int id_Vente= getNumberOfSells()  ,i = 0;i < sz; ++i)
 		{
 			String sqlQr = "insert into Vente values(" +( new Integer(commande.films.elementAt(i).hashCode()).toString())
-					        + ","+id_Vente+","+ commande.total + ","+ commande.date +")";
+					        + ","+id_Vente+","+ commande.total+")";
 			clubDB.getStatment().executeUpdate(sqlQr);
+			
 		}
+
 		
 	}
 	

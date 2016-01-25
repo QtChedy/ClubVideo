@@ -22,7 +22,7 @@ public class Chariot {
 	public Chariot(int d) 
 	{
 		total = 0;
-	
+		films = new Vector<>();
 	}
 	public boolean addFilm(Film film)
 	{

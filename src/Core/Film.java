@@ -23,7 +23,17 @@ abstract public class Film {
 		prix = prx;
 	
 	}
-
+	
+	public static int convertTypeFromAsciiToNumber(String type)
+	{
+		if(type.equals("Action"))
+			return 2;
+		else if(type.equals("Science Fiction"))
+			return 3;
+		else
+			return 1;
+			
+	}
 	public String getTitre() {
 		return titre;
 	}
