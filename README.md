@@ -1,3 +1,3 @@
 # ClubVideo
-Java Project 
+Java Project:
 it's a university project 
