@@ -62,4 +62,39 @@ public class StockManager {
 		String sqlQuery = "select *from Realisateur";
 		return clubDB.getStatment().executeQuery(sqlQuery);
 	}
+	
+	public Film toFilm(int row)
+	{
+		try
+		{
+			ResultSet rs = this.getAllFilms();
+		    rs.next();
+			for(int i =0; i < row;++i,rs.next());
+			System.out.println("index row : "+row );
+			String type = rs.getString("type");
+			String titre = rs.getString("titre");
+			double prix = rs.getDouble("prix");
+			int idR = rs.getInt("id_realisateur");
+			rs.close();
+			String sql = "select nom,prenom from Realisateur where id_realisateur = "+idR; 
+			ResultSet s = clubDB.getStatment().executeQuery(sql);
+			if(s.next())
+			{
+				FilmFactory fact = new FilmFactory();
+				return fact.makeFilm(Film.convertTypeFromAsciiToNumber(type), 
+								 	new Realisateur(s.getString("nom"), s.getString("prenom")), 
+								 	titre, 
+								 	prix);
+			}
+			return null;
+			
+		}
+		catch(SQLException s)
+		{
+			System.out.println("error");
+			s.printStackTrace();
+			return null;
+		}
+
+	}
 }
