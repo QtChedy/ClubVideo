@@ -53,11 +53,20 @@ public class MainWindow {
 		AjouterFilm tabAjFlm = new AjouterFilm();
 		AjouterRealisateur tabAjRea = new AjouterRealisateur();
 		SupprimerFilm tabSuppFlm = new SupprimerFilm();
+		SupprimerRealisateur tabSuppRea = new SupprimerRealisateur();
+		RechercherFilm tabRechFlm = new RechercherFilm();
 		
 		
 		tabbedPane.add("Ajouter Film", tabAjFlm);
 		tabbedPane.add("SupprimerFilm", tabSuppFlm);
 		tabbedPane.add("Ajouter Realisateur", tabAjRea);
+		tabbedPane.add("Supprimer Realisateur", tabSuppRea);
+		tabbedPane.add("RecherCher Film", tabRechFlm);
+		
+		tabAjRea.setComboBox(tabAjFlm.getComboBox());
+		tabAjRea.setComboSupp(tabSuppFlm.getComboBox());
+		tabSuppRea.setComboBox(tabAjFlm.getComboBox());
+		tabSuppRea.setComboSupp(tabSuppFlm.getComboBox());
 		
 	}
 }

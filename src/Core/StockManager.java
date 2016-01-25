@@ -27,7 +27,7 @@ public class StockManager {
 	
 	public ResultSet filterFilm(String col, String value)  throws SQLException{
 		
-		return clubDB.select("Film", "titre,prix", col + " = " + value);
+		return clubDB.select("Film", "titre,prix,type", col + " = " + value);
 	
 	}
 	
@@ -49,6 +49,11 @@ public class StockManager {
 	public ResultSet getAllFilms() throws SQLException
 	{
 		String sqlQuery = "select * from Film";
+		return clubDB.getStatment().executeQuery(sqlQuery);
+	}
+	public ResultSet getAllFilms(String cols) throws SQLException
+	{
+		String sqlQuery = "select "+ cols+ " from Film";
 		return clubDB.getStatment().executeQuery(sqlQuery);
 	}
 	
